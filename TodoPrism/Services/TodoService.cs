@@ -18,6 +18,9 @@ namespace TodoPrism.Services {
             }
         }
 
+        //https://bmetodoservice.azurewebsites.net
+
+        //API-tól kérjük le a TODO elemek listáját.
         private readonly Uri _serverUrl = new Uri("https://bmetodoservice.azurewebsites.net");
         public async Task<List<TodoItem>> GetTodosAsync() {
             return await GetAsync<List<TodoItem>>(new Uri(_serverUrl, "api/Todo"));
