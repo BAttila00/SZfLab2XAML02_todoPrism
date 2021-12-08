@@ -63,7 +63,7 @@ namespace TodoPrism
         protected override IDeviceGestureService OnCreateDeviceGestureService()
         {
             var service = base.OnCreateDeviceGestureService();
-            service.UseTitleBarBackButton = false;
+            service.UseTitleBarBackButton = true;                           //visszagombhoz legyen true
             return service;
         }
 

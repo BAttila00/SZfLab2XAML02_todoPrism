@@ -1,17 +1,16 @@
-﻿using System;
+﻿using Prism.Windows.Mvvm;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TodoPrism.Models;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 
-namespace TodoPrism.Views
+namespace TodoPrism.ViewModels {
+    public class MainViewModel : ViewModelBase {
+        public ObservableCollection<TodoItem> Todos { get; set; } = new ObservableCollection<TodoItem>()
 {
-
-    public sealed partial class MainPage : Page
-    {
-
-        public static ObservableCollection<TodoItem> Todos { get; set; } = new ObservableCollection<TodoItem>()
-        {
             new TodoItem()
             {
                 Id = 1,
@@ -31,18 +30,5 @@ namespace TodoPrism.Views
                 Deadline = new DateTime(2017, 12, 08, 12, 00, 00, 00)
             }
         };
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(TodoDetailsPage), null);
-        }
-
-        private void Todos_OnItemClick(object sender, ItemClickEventArgs e)
-        {
-            Frame.Navigate(typeof(TodoDetailsPage), e.ClickedItem);
-        }
     }
 }
